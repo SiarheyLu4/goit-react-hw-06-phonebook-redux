@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import styled from 'styled-components';
-import { nanoid } from 'nanoid';
-import { Notify } from 'notiflix';
+// import { nanoid } from 'nanoid';
+// import { Notify } from 'notiflix';
 
 import { ContactForm } from "components/ContactForm/ContactForm";
 import { Filter } from "components/Filter/Filter";
@@ -9,11 +9,13 @@ import { ContactList } from "components/ContactList/ContactList";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { addContact, removeContact } from "redux/actions";
+import { addContact, removeContact, setFilter } from "redux/actions";
+import { getFilterContacts, getFilter } from "redux/selectors";
 
 
 const Phonebook = () => {
-  const contacts = useSelector(store => store.contacts);
+  const contacts = useSelector(getFilterContacts);
+  const filter = useSelector(getFilter)
 
   const dispatch = useDispatch();
 
@@ -26,6 +28,10 @@ const Phonebook = () => {
     dispatch(removeContact(payload));
   }
 
+  const onSetFilter = ({target}) => {
+    dispatch(setFilter(target.value));
+  }
+
 
 
   return (
@@ -34,7 +40,8 @@ const Phonebook = () => {
         <ContactForm addContact={onAddContact} />
         
         <h2>Contacts</h2>
-        <Filter />
+      <Filter value={filter}
+        onChange={onSetFilter}/>
       <ContactList contacts={contacts}
         deleteContact={onRemoveContact} />
       </Card>
