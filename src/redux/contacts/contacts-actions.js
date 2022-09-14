@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid"
 
-import { ADD_CONTACT, REMOVE_CONTACT, SET_FILTER } from "./types"
+import { ADD_CONTACT, REMOVE_CONTACT } from "./contacts-types"
 
 
 export const addContact = (payload) => {
@@ -16,13 +16,6 @@ export const addContact = (payload) => {
 export const removeContact = (payload) => {
   return {
     type: REMOVE_CONTACT,
-    payload,
-  }
-}
-
-export const setFilter = (payload) => {
-  return {
-    type: SET_FILTER,
     payload,
   }
 }

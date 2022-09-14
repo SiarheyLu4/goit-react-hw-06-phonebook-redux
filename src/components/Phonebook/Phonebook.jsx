@@ -9,7 +9,7 @@ import { ContactList } from "components/ContactList/ContactList";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { addContact, removeContact, setFilter } from "redux/actions";
+import { addContact, removeContact, setFilter } from "redux/filter/filter-actions";
 import { getFilterContacts, getFilter } from "redux/selectors";
 
 
