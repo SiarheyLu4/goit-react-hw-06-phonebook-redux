@@ -9,8 +9,11 @@ import { ContactList } from "components/ContactList/ContactList";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { addContact, removeContact, setFilter } from "redux/filter/filter-actions";
-import { getFilterContacts, getFilter } from "redux/selectors";
+import { addContact, removeContact } from 'redux/contacts/contacts-actions';
+import { setFilter } from "redux/filter/filter-actions";
+
+import { getFilterContacts } from 'redux/contacts/contacts-selectors';
+import { getFilter } from 'redux/filter/filter-selectors';
 
 
 const Phonebook = () => {
@@ -40,10 +43,10 @@ const Phonebook = () => {
         <ContactForm addContact={onAddContact} />
         
         <h2>Contacts</h2>
-      <Filter value={filter}
-        onChange={onSetFilter}/>
-      <ContactList contacts={contacts}
-        deleteContact={onRemoveContact} />
+        <Filter value={filter}
+          onChange={onSetFilter}/>
+        <ContactList contacts={contacts}
+          deleteContact={onRemoveContact} />
       </Card>
     )
 }
