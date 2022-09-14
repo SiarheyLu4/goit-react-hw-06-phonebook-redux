@@ -1,4 +1,4 @@
-export const getContacts = store => store.contacts;
+// export const getContacts = store => store.contacts;
 
 export const getFilterContacts = ({ contacts, filter }) => {
   const normalizedFilter = filter.toLowerCase();
