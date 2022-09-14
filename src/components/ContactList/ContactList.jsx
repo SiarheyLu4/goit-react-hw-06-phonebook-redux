@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-export const ContactList = ({ getFilterContacts, deleteContact }) => {
+export const ContactList = ({ contacts, deleteContact }) => {
   return (
     <Ul>
-      {getFilterContacts().sort((a, b) => a.name.localeCompare(b.name)).map(({id, name, number}) => (
+      {contacts.sort((a, b) => a.name.localeCompare(b.name)).map(({id, name, number}) => (
         
         <Li key={id}>{name}: {number}
             <Btm type='' onClick={() => deleteContact(id, name)}> Del </Btm>
